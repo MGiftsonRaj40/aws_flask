@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - My Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to TechStore</h1>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/about">About</a> |
+        <a href="/products">Products</a>
+    </nav>
+
+    <p>Discover the latest in technology at unbeatable prices. From laptops to smart gadgets, we bring you quality electronics for your everyday needs.</p>
+
+    <h2>Featured Products</h2>
+    <ul>
+        {% for product in products[:4] %} <!-- show first 4 products -->
+        <li>
+            <img src="{{ product.image }}" alt="{{ product.name }}" width="200" height="150" loading="lazy"><br>
+            <strong>{{ product.name }}</strong><br>
+            ₹{{ product.price }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <footer>
+        <p>© 2025 TechStore. All rights reserved.</p>
+    </footer>
+</body>
+</html>

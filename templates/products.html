@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Products - My Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1>Our Products</h1>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/about">About</a> |
+        <a href="/products">Products</a>
+    </nav>
+    <ul>
+        {% for product in products %}
+        <li>
+            <img src="{{ product.image }}" alt="{{ product.name }}" width="200" height="150" loading="lazy"><br>
+            {{ product.name }} - ₹{{ product.price }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
